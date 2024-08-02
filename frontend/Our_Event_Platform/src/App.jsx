@@ -121,6 +121,7 @@ const App = () => {
     setUser(null);
     localStorage.removeItem('google_access_token'); // Clear stored token
     localStorage.removeItem('google_user');
+    setSignups([])
   };
 
   return (
