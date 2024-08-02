@@ -1,12 +1,10 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { GoogleOAuthProvider } from '@react-oauth/google';
 import Header from './components/Header';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 import Home from './components/Home';
 import ListEvents from './components/ListEvents';
-import SignIn from './components/SignIn';
 import CreateEventForm from './components/CreateEventForm';
 import SingleEvent from './components/SingleEvent';
 import './styles.css';
@@ -95,7 +93,7 @@ const App = () => {
   
     await auth2.signOut();
     setUser(null);
-    localStorage.setItem('google_user', null)
+    localStorage.removeItem('google_user', null)
   }
 
   const toggleSignup = async (data) => {

@@ -4,7 +4,7 @@ const fs = require('fs');
 const path = require('path');
 
 // Path to store signups
-const dataDir = path.join(__dirname, '..', 'data');
+const dataDir = path.join(__dirname, '../../database');
 const signupsFilePath = path.join(dataDir, 'signups.json');
 
 // Ensure the data directory exists
