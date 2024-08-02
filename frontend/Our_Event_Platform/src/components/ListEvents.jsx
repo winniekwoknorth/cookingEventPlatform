@@ -58,8 +58,8 @@ const ListEvents = () => {
             <tr key={event.id}>
               <td>{event.id}</td>
               <td><Link to={`/events/${event.id}`}>{event.name.text}</Link></td>
-              <td>{formatDate(event.start.local)}</td>
-              <td>{formatDate(event.start.local)}</td>
+              <td>{formatDate(event.start.utc)}</td>
+              <td>{formatDate(event.start.utc)}</td>
               <td>{isSignedUp ? 'Yes' : '-'}</td>
             </tr>
           )}

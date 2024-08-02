@@ -118,6 +118,8 @@ const SingleEvent = () => {
       <p>{event.description.text}</p>
       <p>Start time: {formatDate(event.start.utc)}</p>
       <p>End Time: {formatDate(event.end.utc)}</p>
+      <p>Capacity: {event.capacity}</p>
+      <p>Summary: {event.summary}</p>
       <br/><br/>
       {isSignedUp ? <p>You are signed up to this event!</p> : <p>You are NOT signed up to this event</p>}
       <br/><br/>
