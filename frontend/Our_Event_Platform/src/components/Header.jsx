@@ -16,7 +16,7 @@ const Header = () => {
             <div className='auth'>
                 
                 {user && <div className='user'>
-                        <div><img src={user.imageUrl}/></div>
+                        <div><img alt="profile pic" src={user.imageUrl}/></div>
                         <div>{user.email}<br/><b>{user.isStaff ? 'STAFF MEMBER' : ''}</b></div></div>}
 
                 {user && <button onClick={signOut}>Sign out</button>}

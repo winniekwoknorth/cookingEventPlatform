@@ -2,7 +2,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { listEvents } from '../api/eventbriteApi';
 import { Link } from 'react-router-dom'
-import { formatDate } from '../utils/dateUtils';
+import { displayDate } from '../utils/dateUtils';
 import { AppContext } from '../App';
 
 const ListEvents = () => {
@@ -58,8 +58,8 @@ const ListEvents = () => {
             <tr key={event.id}>
               <td>{event.id}</td>
               <td><Link to={`/events/${event.id}`}>{event.name.text}</Link></td>
-              <td>{formatDate(event.start.utc)}</td>
-              <td>{formatDate(event.start.utc)}</td>
+              <td>{displayDate(event.start.utc)}</td>
+              <td>{displayDate(event.start.utc)}</td>
               <td>{isSignedUp ? 'Yes' : '-'}</td>
             </tr>
           )}

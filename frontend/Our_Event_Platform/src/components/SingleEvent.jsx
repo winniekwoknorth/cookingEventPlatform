@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { singleEvent } from '../api/eventbriteApi'; // Consolidated API imports
 
 import { gapi } from 'gapi-script'
-import { formatDate } from '../utils/dateUtils';
+import { displayDate } from '../utils/dateUtils';
 import { AppContext } from '../App';
 
 const SingleEvent = () => {
@@ -116,8 +116,8 @@ const SingleEvent = () => {
     <div>
       <h1>{event.name.text}</h1>
       <p>{event.description.text}</p>
-      <p>Start time: {formatDate(event.start.utc)}</p>
-      <p>End Time: {formatDate(event.end.utc)}</p>
+      <p>Start time: {displayDate(event.start.utc)}</p>
+      <p>End Time: {displayDate(event.end.utc)}</p>
       <p>Capacity: {event.capacity}</p>
       <p>Summary: {event.summary}</p>
       <br/><br/>
