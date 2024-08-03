@@ -126,4 +126,31 @@ router.post('/create', async (req, res) => {
   }
 });
 
+// Route to get event capacity details
+router.get('/events/:eventId/capacity_tier', async (req, res) => {
+  const { eventId } = req.params;
+  try {
+    const response = await axios.get(`${API_BASE_URL}/events/${eventId}/capacity_tier/`, {
+      headers: {
+        Authorization: `Bearer ${process.env.REACT_APP_EVENTBRITE_TOKEN}`,
+        'Content-Type': 'application/json'
+      }
+    });
+    res.json(response.data);
+  } catch (error) {
+    console.error('Error fetching event capacity details:', error.message);
+    if (error.response) {
+      // If the error response contains a status code and data
+      res.status(error.response.status).json({
+        error: error.response.data.error || 'Failed to fetch event capacity details',
+        error_description: error.response.data.error_description || '',
+        error_detail: error.response.data.error_detail || {}
+      });
+    } else {
+      // For other errors (e.g., network errors)
+      res.status(500).json({ error: 'Failed to fetch event capacity details' });
+    }
+  }
+});
+
 module.exports = router;

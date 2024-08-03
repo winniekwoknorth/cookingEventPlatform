@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { singleEvent } from '../api/eventbriteApi'; // Consolidated API imports
+import { singleEvent, getEventCapacity } from '../api/eventbriteApi'; // Consolidated API imports
 
 import { gapi } from 'gapi-script'
 import { displayDate } from '../utils/dateUtils';
@@ -17,6 +17,7 @@ const SingleEvent = () => {
 
   const [signupFeedback, setSignupFeedback] = useState(''); // Fixed state variable name
   const [calendarFeedback, setCalendarFeedback] = useState(''); 
+  const [capacity, setCapacity] = useState(null); // State for capacity details
 
   const isSignedUp = signups.find(s => s.eventId === eventId)
 
@@ -25,8 +26,11 @@ const SingleEvent = () => {
       try {
         const eventData = await singleEvent(eventId);
         setEvent(eventData);
+
+        const capacityData = await getEventCapacity(eventId);
+        setCapacity(capacityData);
       } catch (error) {
-        setError('Error fetching event details');
+        setError('Error fetching event details or capacity');
         console.error(error.message);
       } finally {
         setLoading(false);
@@ -114,29 +118,26 @@ const SingleEvent = () => {
 
   return (
     <div>
-      <div><img alt= "thai food photo" src={ event.logo.url}></img></div>
+      {event.logo && event.logo.url && (
+  <div>
+    <img alt={event.logo.url} src={event.logo.url} />
+  </div>
+)}
       <h1>{event.name.text}</h1>
       <p>{event.description.text}</p>
       <p>Start time: {displayDate(event.start.utc)}</p>
       <p>End Time: {displayDate(event.end.utc)}</p>
-      <p>Capacity: {event.capacity}</p>
+      <p>Capacity Remaining: {capacity ? capacity.capacity_total - capacity.capacity_sold : 'N/A'}</p>
       <p>Summary: {event.summary}</p>
-      <br/><br/>
+      <br /><br />
       {isSignedUp ? <p>You are signed up to this event!</p> : <p>You are NOT signed up to this event</p>}
-      <br/><br/>
-      {user && !isSignedUp && <button onClick={handleSignup}>Sign Up
-      </button>}
-      {user && isSignedUp && <button onClick={handleCancel}>Cancel event
-      </button>}
+      <br /><br />
+      {user && !isSignedUp && <button onClick={handleSignup}>Sign Up</button>}
+      {user && isSignedUp && <button onClick={handleCancel}>Cancel event</button>}
       {!user && <p>Sign in above to sign up to this event</p>}
-
-      
       {user && isSignedUp && <button onClick={handleAddToCalendar}>Add Event to Google Calendar</button>}
-      
-      <br/><br/>
-
+      <br /><br />
       {signupFeedback && <p>{signupFeedback}</p>}
-
       {calendarFeedback && <p>{calendarFeedback}</p>}
     </div>
   );

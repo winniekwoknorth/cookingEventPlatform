@@ -62,3 +62,14 @@ export const signupEvent = async (data) => {
     throw error;
   }
 }
+
+export const getEventCapacity = async (eventId) => {
+  try {
+    const response = await axios.get(`${API_BASE_URL}/events/${eventId}/capacity_tier`);
+    console.log(response)
+    return response.data;
+  } catch (error) {
+    console.error('Error listing capacity:', error.response ? error.response.data : error.message);
+    throw error;
+  }
+}
