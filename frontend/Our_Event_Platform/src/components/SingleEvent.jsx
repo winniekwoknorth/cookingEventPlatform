@@ -114,6 +114,7 @@ const SingleEvent = () => {
 
   return (
     <div>
+      <div><img alt= "thai food photo" src={ event.logo.url}></img></div>
       <h1>{event.name.text}</h1>
       <p>{event.description.text}</p>
       <p>Start time: {displayDate(event.start.utc)}</p>

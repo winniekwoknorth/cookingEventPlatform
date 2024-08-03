@@ -94,7 +94,7 @@ router.get('/events/:eventId', async (req, res) => {
 });
 // Route to create an event
 router.post('/create', async (req, res) => {
-  const {eventName, startDate, endDate, currency, capacity, summary } = req.body;
+  const {eventName, startDate, endDate, capacity, summary,currency } = req.body;
 
   try {
     const organizationId = await getOrganizationId(); // Fetch the organization ID
@@ -105,10 +105,10 @@ router.post('/create', async (req, res) => {
         name: { html: eventName },
         start: { utc: startDate, timezone: 'UTC' },
         end: { utc: endDate, timezone: 'UTC' },
-        currency: currency,
         online_event: true,
         capacity: capacity,
-        summary: summary
+        summary: summary,
+        currency: currency
       }
     };
     console.log('Event payload:', eventPayload);

@@ -34,6 +34,7 @@ const CreateEventForm = () => {
     const endDate = formData.get('endDate');
     const capacity = formData.get('capacity')
     const summary = formData.get('summary')
+    const currency = formData.get('currency')
 
     const eventData = {
       organizationId,
@@ -41,7 +42,8 @@ const CreateEventForm = () => {
       startDate: formatDate(startDate),
       endDate: formatDate(endDate),
       capacity,
-      summary
+      summary,
+      currency
     };
 
     try {
@@ -70,6 +72,7 @@ const CreateEventForm = () => {
         <input type="datetime-local" name="endDate" required />
         <input type="number" name="capacity" placeholder="Capacity" required />
         <input type="text" name="summary" placeholder="Summary" required />
+        <input type="text" name="currency" placeholder="Currency" required />
         <button type="submit">Create Event</button>
       </form>
     </div>
