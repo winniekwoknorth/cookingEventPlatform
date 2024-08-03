@@ -50,5 +50,5 @@ you should see 'your application running on 5173'
 http://localhost:5173/
 It have to be http://localhost:5173/
 
-Start exploring the cuisine world. 
+Start exploring the cuisine world for free for limited time. 
 
