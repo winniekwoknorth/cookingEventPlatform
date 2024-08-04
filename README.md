@@ -52,3 +52,7 @@ It have to be http://localhost:5173/
 
 Start exploring the cuisine world for free for limited time. 
 
+Hosted app
+This project is hosted on
+Frontend: https://www.netlify.com/
+Backend: https://render.com/
