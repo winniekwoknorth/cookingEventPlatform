@@ -59,7 +59,7 @@ const ListEvents = () => {
               <td>{event.id}</td>
               <td><Link to={`/events/${event.id}`}>{event.name.text}</Link></td>
               <td>{displayDate(event.start.utc)}</td>
-              <td>{displayDate(event.start.utc)}</td>
+              <td>{displayDate(event.end.utc)}</td>
               <td>{isSignedUp ? 'Yes' : '-'}</td>
             </tr>
           )}
