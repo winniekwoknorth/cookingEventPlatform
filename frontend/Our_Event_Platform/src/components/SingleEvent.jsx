@@ -5,6 +5,7 @@ import { singleEvent, getEventCapacity } from '../api/eventbriteApi'; // Consoli
 import { gapi } from 'gapi-script'
 import { displayDate } from '../utils/dateUtils';
 import { AppContext } from '../App';
+import '../App.css'
 
 const SingleEvent = () => {
 
@@ -119,10 +120,17 @@ const SingleEvent = () => {
   return (
     <div>
       {event.logo && event.logo.url && (
-  <div>
-    <img alt={event.logo.url} src={event.logo.url} />
-  </div>
-)}
+      <div className="image-container">
+      <img
+        alt={event.logo.altText || 'Event logo'}
+        src={event.logo.url}
+        width="400" // Set a default width
+        height="300" // Set a default height
+        role="img"
+        aria-label={event.logo.altText || 'Event logo'}
+      />
+    </div>
+      )}
       <h1>{event.name.text}</h1>
       <p>{event.description.text}</p>
       <p>Start time: {displayDate(event.start.utc)}</p>
@@ -130,15 +138,47 @@ const SingleEvent = () => {
       <p>Capacity Remaining: {capacity ? capacity.capacity_total - capacity.capacity_sold : 'N/A'}</p>
       <p>Summary: {event.summary}</p>
       <br /><br />
-      {isSignedUp ? <p>You are signed up to this event!</p> : <p>You are NOT signed up to this event</p>}
+      {isSignedUp ? (
+        <p>You are signed up to this event!</p>
+      ) : (
+        <p>You are NOT signed up to this event</p>
+      )}
       <br /><br />
-      {user && !isSignedUp && <button onClick={handleSignup}>Sign Up</button>}
-      {user && isSignedUp && <button onClick={handleCancel}>Cancel event</button>}
-      {!user && <p>Sign in above to sign up to this event</p>}
-      {user && isSignedUp && <button onClick={handleAddToCalendar}>Add Event to Google Calendar</button>}
+      {user && !isSignedUp && (
+        <button
+          onClick={handleSignup}
+          aria-live="assertive"
+          aria-label="Sign up for this event"
+        >
+          Sign Up
+        </button>
+      )}
+      {user && isSignedUp && (
+        <button
+          onClick={handleCancel}
+          aria-live="assertive"
+          aria-label="Cancel your signup for this event"
+        >
+          Cancel event
+        </button>
+      )}
+      {!user && <p>Sign in above to sign up for this event</p>}
+      {user && isSignedUp && (
+        <button
+          onClick={handleAddToCalendar}
+          aria-live="assertive"
+          aria-label="Add this event to your Google Calendar"
+        >
+          Add Event to Google Calendar
+        </button>
+      )}
       <br /><br />
-      {signupFeedback && <p>{signupFeedback}</p>}
-      {calendarFeedback && <p>{calendarFeedback}</p>}
+      {signupFeedback && (
+        <p aria-live="polite">{signupFeedback}</p>
+      )}
+      {calendarFeedback && (
+        <p aria-live="polite">{calendarFeedback}</p>
+      )}
     </div>
   );
 };

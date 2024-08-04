@@ -40,3 +40,15 @@
 .read-the-docs {
   color: #888;
 }
+
+.image-container {
+  max-width: 100%;
+  height: auto; /* Adjust height automatically to maintain aspect ratio */
+  overflow: hidden;
+}
+
+.image-container img {
+  display: block;
+  width: 50%; /* Make the image fill the container */
+  height: auto; /* Maintain aspect ratio */
+}
