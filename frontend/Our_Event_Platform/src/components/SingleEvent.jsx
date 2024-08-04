@@ -135,7 +135,6 @@ const SingleEvent = () => {
       <p>{event.description.text}</p>
       <p>Start time: {displayDate(event.start.utc)}</p>
       <p>End Time: {displayDate(event.end.utc)}</p>
-      <p>Capacity Remaining: {capacity ? capacity.capacity_total - capacity.capacity_sold : 'N/A'}</p>
       <p>Summary: {event.summary}</p>
       <br /><br />
       {isSignedUp ? (

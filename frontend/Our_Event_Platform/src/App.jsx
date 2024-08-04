@@ -93,7 +93,7 @@ const App = () => {
   
     await auth2.signOut();
     setUser(null);
-    localStorage.removeItem('google_user', null)
+    localStorage.removeItem('google_user')
   }
 
   const toggleSignup = async (data) => {
@@ -115,14 +115,7 @@ const App = () => {
       console.error(e)
     }
   }
-  
 
-  const handleSignOut = () => {
-    setUser(null);
-    localStorage.removeItem('google_access_token'); // Clear stored token
-    localStorage.removeItem('google_user');
-    setSignups([])
-  };
 
   return (
       <Router>
@@ -137,7 +130,7 @@ const App = () => {
         }}>
         <div>
           <Header />
-          <NavBar user={user} handleSignOut={handleSignOut}/>
+          <NavBar/>
           <main>
             <Routes>
               <Route path="/" element={<Home />} />
