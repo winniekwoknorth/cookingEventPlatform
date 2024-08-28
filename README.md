@@ -1,7 +1,7 @@
 # cookingEventPlatform
 
 
-Project Introduction
+# Project Introduction
 
 This is a web site for a online cooking school to create events for users to join. 
 Users can login with thier google account to sign up for events. Users can also add events to their google calendar.  
@@ -15,7 +15,7 @@ You would get response with 48 hours.
 
 
 
-Running locally
+# Running locally
 Clone the repository
 In you machine, in the linux terminal, nevigate to the folder you want to store this project and then:
 
@@ -33,6 +33,8 @@ and then navigate to `frontend\Our_Event_platform`
 creat .env files in the root of `backend` and `frontend\Our_Event_Platform` folder
 the information in .env are confidential and only provide to the client of this project. 
 (in this case, it will provide in the googleform for project submission)
+
+Take a look on the .env.example to see how  a .env file should be like. 
 
 Staff members need to provide thier email to web page developer for approval.
 It can be done by navigate to `backend/data/staff.json` and add the staff email.
@@ -52,7 +54,7 @@ It have to be http://localhost:5173/
 
 Start exploring the cuisine world for free for limited time. 
 
-Hosted app
+# Hosted app
 This project is hosted on
 Frontend: https://www.netlify.com/
 Backend: https://render.com/
