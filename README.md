@@ -32,9 +32,12 @@ and then navigate to `frontend\Our_Event_platform`
 
 creat .env files in the root of `backend` and `frontend\Our_Event_Platform` folder
 the information in .env are confidential and only provide to the client of this project. 
-(in this case, it will provide in the googleform for project submission)
 
-Take a look on the .env.example to see how  a .env file should be like. 
+Detail instruction of how to get the required information in .env file will be give in 
+- Getting Started with the Eventbrite API &
+Getting Started with the Google Calendar API
+
+Copy the .env.example from `backend` and `frontend\Our_Event_Platform` folder, create you own .env file and fill in the key and crendital you generated from eventbrite and google calendar API page. 
 
 Staff members need to provide thier email to web page developer for approval.
 It can be done by navigate to `backend/data/staff.json` and add the staff email.
@@ -53,6 +56,21 @@ http://localhost:5173/
 It have to be http://localhost:5173/
 
 Start exploring the cuisine world for free for limited time. 
+
+# Getting Started with the Eventbrite API
+Before you can start using the Eventbrite API, you'll need to do the following:
+Create a free Eventbrite account on below link:
+https://www.eventbrite.com/
+
+Go to the Developer Portal and click "Get a Free API Key" to retrieve your API key.
+Authenticate your API access.
+
+# Getting Started with the Google Calendar API
+Before you can start using the Google Calendar API, you'll need to do the following:
+Create a free google account on below link:
+https://www.google.com/
+And follow instruction in this page: https://developers.google.com/calendar/api/quickstart/go
+to set up environment and generate required key. 
 
 # Hosted app
 This project is hosted on
