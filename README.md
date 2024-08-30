@@ -77,5 +77,5 @@ This project is hosted on
 Frontend: https://www.netlify.com/
 Backend: https://render.com/
 
-#Video showing functions provided in this web site is demonstrated in below video:
+# Video showing functions provided in this web site is demonstrated in below video:
 https://www.youtube.com/watch?v=VL5mJ8lWoNY
